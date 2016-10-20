@@ -21,6 +21,8 @@
 // を参考にした。
 //////////////////////////////////////////////////////////////////////////////////////
 
+#ifndef _INC_HITO    //まだ読み込まれていなければ以下の処理をする
+#define _INC_HITO    //すでに読み込まれているという目印をつける
 
 #include <iostream>
 #include <cmath>
@@ -31,7 +33,7 @@ template<class X> class bisection
 private:
   double x_low, x_high;
   static const double eps = 1e-08;  // 打ち切り精度
-  static const int  limit = 50;
+  static const int  limit = 50;     //打ち切り回数
   X (*pfunc)(double, double) = NULL;
 public:
   
@@ -79,3 +81,5 @@ double bisection<X>::cal(double U_)
     }
     return x_temp;//これが方程式の解
 }
+
+#endif    //INC_HITO
