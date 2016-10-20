@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cstdlib>
+#include <cstring>
+using namespace std;
+
+int comp(const void *a, const void *b);
+
+int main()
+{
+  char str[] = "Function pointers provide flexibility.";
+
+  qsort(str, strlen(str), 1, comp);
+  cout << "sorted string: " << str << endl;
+
+  return 0;
+}
+
+int comp(const void *a, const void *b)
+{
+  return *(char*) a - *(char *) b;
+}
